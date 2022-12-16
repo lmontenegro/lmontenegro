@@ -1,0 +1,25 @@
+{% extends 'billtis/layaout.html' %}
+	
+	{% block content %}
+
+		<h1>Bienvenido a {{ place.name }}</h1>
+			<div class="list-group">
+				{% for menu in menus %}
+					<h5 class="">{{ menu.name }}</h5>
+
+					{% for item in items %}
+						{% if menu.id == item.menu.id %}
+							<div class="card">
+								<div class="card-body">
+									<h5 class="card-title">{{ item.name }}</h5>
+										<h6 class="card-subtitle mb-2 text-muted">{{ item.price }}</h6>
+											<p class="card-text">{{ item.description }}</p>
+										    <a href="{% url 'add' item.id place.id %}" class="btn btn-primary">Add</a>
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
+				{% endfor %}
+			</div>	
+	
+	{% endblock %}

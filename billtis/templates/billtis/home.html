@@ -1,0 +1,12 @@
+{% extends 'billtis/layaout.html' %}
+	
+	{% block content %}
+		<h4 class="mb-3">Places</h4>
+			<div class="list-group">
+				{% for place in places %}
+					<a class="list-group-item list-group-item-action" href="{% url 'place' place.id %}">{{ place }}</a>
+				{% endfor %}
+			</div>
+	{% endblock %}
+
+
